@@ -1,0 +1,6 @@
+[submodule "insapp-web"]
+	path = insapp-web
+	url = https://github.com/tomatrocho/insapp-web
+[submodule "insapp-go"]
+	path = insapp-go
+	url = https://github.com/tomatrocho/insapp-go
