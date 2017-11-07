@@ -1,0 +1,2 @@
+# insapp-server
+Insapp architecture
