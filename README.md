@@ -18,7 +18,9 @@ You can now run the Docker instance with:
 To pull last updates, simply run:
 
     cd insapp-server
+    docker-compose stop
     git pull && git submodule foreach git pull origin master
+    docker-compose up -d
 
 ## Database dump
 
