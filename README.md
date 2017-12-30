@@ -11,6 +11,7 @@ Don't forget to update your port in `docker-compose.yml` (default: 9000, must ma
 You can now run the Docker instance with:
 
     cd insapp-server
+    docker-compose build
     docker-compose up -d
 
 ## Pull updates
