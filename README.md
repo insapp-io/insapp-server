@@ -20,6 +20,7 @@ To pull last updates, simply run:
     cd insapp-server
     docker-compose stop
     git pull && git submodule foreach git pull origin master
+    docker-compose build
     docker-compose up -d
 
 ## Database dump
