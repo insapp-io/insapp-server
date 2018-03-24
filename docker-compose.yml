@@ -1,23 +1,38 @@
-    version: '2'
-    services:
-        nginx:
-            restart: always
-            build: ./insapp-web
-            ports:
-                - 9000:80
-            volumes:
-                - ./insapp-cdn/:/var/insapp-cdn/
-            depends_on:
-                - golang
-        golang:
-            restart: always
-            build: ./insapp-go
-            volumes:
-                - ./insapp-cdn/:/go/src/app/src/img/
-            depends_on:
-                - mongo
-        mongo:
-            restart: always
-            image: mongo
-            volumes:
-                - ./insapp-db/:/data/db
+version: "2"
+services:
+    proxy:
+        restart: always
+        image: traefik
+        command: --web --docker --docker.domain=docker.localhost --logLevel=DEBUG
+        ports:
+            - "80:80"
+            - "8080:8080"
+            - "443:443"
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+    api:
+        restart: always
+        build: ./insapp-go
+        ports:
+            - "9010:9010"
+        labels:
+            - "traefik.backend=api"
+            - "traefik.frontend.rule=Host:dev.insapp.fr;PathPrefixStrip:/api/v1"
+        depends_on:
+            - db
+    web:
+        restart: always
+        build: ./insapp-web
+        volumes:
+            - ./insapp-cdn/:/var/insapp-cdn/
+        labels:
+            - "traefik.backend=web"
+            - "traefik.frontend.passHostHeader=true"
+            - "traefik.frontend.rule=Host:dev.insapp.fr"
+        depends_on:
+            - api
+    db:
+        restart: always
+        image: mongo
+        volumes:
+            - ./insapp-db/:/data/db
