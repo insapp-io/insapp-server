@@ -3,19 +3,21 @@ services:
     proxy:
         restart: always
         image: traefik
-        command: --web --docker --docker.domain=docker.localhost --logLevel=DEBUG
         ports:
             - "80:80"
             - "8080:8080"
             - "443:443"
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock
+            - $PWD/traefik.toml:/etc/traefik/traefik.toml
+            - $PWD/acme:/etc/traefik/acme
     api:
         restart: always
         build: ./insapp-go
         ports:
             - "9010:9010"
         labels:
+            - "traefik.enable=true"
             - "traefik.backend=api"
             - "traefik.frontend.rule=Host:dev.insapp.fr;PathPrefixStrip:/api/v1"
         depends_on:
@@ -26,6 +28,7 @@ services:
         volumes:
             - ./insapp-cdn/:/var/insapp-cdn/
         labels:
+            - "traefik.enable=true"
             - "traefik.backend=web"
             - "traefik.frontend.passHostHeader=true"
             - "traefik.frontend.rule=Host:dev.insapp.fr"

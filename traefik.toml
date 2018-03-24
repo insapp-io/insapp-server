@@ -1,0 +1,33 @@
+debug = false
+
+logLevel = "ERROR"
+defaultEntryPoints = ["https","http"]
+
+# Web interface of Traefik
+[web]
+address = ":8080"
+
+# Force HTTPS
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+    [entryPoints.http.redirect]
+    entryPoint = "https"
+  [entryPoints.https]
+  address = ":443"
+  [entryPoints.https.tls]
+
+[retry]
+
+[docker]
+domain = "dev.insapp.fr"
+watch = true
+exposedbydefault = false
+
+[acme]
+email = "tomatrocho@gmail.com"
+storage = "/etc/traefik/acme/acme.json"
+entryPoint = "https"
+OnHostRule = true
+[acme.httpChallenge]
+entryPoint = "http"
