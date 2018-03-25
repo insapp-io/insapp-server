@@ -1,4 +1,4 @@
-version: "2"
+version: "3"
 services:
     proxy:
         restart: always
@@ -30,7 +30,6 @@ services:
         labels:
             - "traefik.enable=true"
             - "traefik.backend=web"
-            - "traefik.frontend.passHostHeader=true"
             - "traefik.frontend.rule=Host:dev.insapp.fr"
         depends_on:
             - api
