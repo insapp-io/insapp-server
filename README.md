@@ -4,9 +4,15 @@ Insapp architecture
 
 ## Server setup
 
-    git clone --recursive https://github.com/tomatrocho/insapp-server
+    git clone --recursive https://github.com/tomatrocho/insapp-server.git
 
-Don't forget to update your port in `docker-compose.yml` (default: 9000, must match with `insapp-go/Dockerfile`, `insapp-go/src/config.json` and `insapp-web/nginx.conf`).
+Don't forget to customize the following files:
+
+    * `docker-compose.yml`
+    * `traefik.toml`
+    * `insapp-go/Dockerfile`
+    * `insapp-go/src/config.json`
+    * `insapp-web/app/app.config.json`
 
 You can now run the Docker instance with:
 
@@ -18,11 +24,7 @@ You can now run the Docker instance with:
 
 To pull last updates, simply run:
 
-    cd insapp-server
-    docker-compose stop
     git pull && git submodule foreach git pull origin master
-    docker-compose build
-    docker-compose up -d
 
 ## Database dump
 
