@@ -38,3 +38,8 @@ services:
         image: mongo
         volumes:
             - ./insapp-db/:/data/db
+    dropbox:
+        restart: always
+        build: ./insapp-backup
+        volumes:
+            - ./insapp-cdn/:/opt/Dropbox-Uploader/insapp-cdn/
