@@ -14,4 +14,4 @@ RUN chmod +x /opt/Dropbox-Uploader/Dropbox-Uploader/dropbox_uploader.sh /opt/Dro
 
 RUN /usr/bin/crontab ./crontab.txt
 
-CMD ["/entry.sh"]
+CMD ["./entry.sh"]
