@@ -15,11 +15,11 @@ services:
         restart: always
         build: ./insapp-go
         ports:
-            - "9010:9010"
+            - "9000:9000"
         labels:
             - "traefik.enable=true"
             - "traefik.backend=api"
-            - "traefik.frontend.rule=Host:dev.insapp.fr;PathPrefixStrip:/api/v1"
+            - "traefik.frontend.rule=Host:insapp.fr;PathPrefixStrip:/api/v1"
         depends_on:
             - db
     web:
@@ -30,7 +30,7 @@ services:
         labels:
             - "traefik.enable=true"
             - "traefik.backend=web"
-            - "traefik.frontend.rule=Host:dev.insapp.fr"
+            - "traefik.frontend.rule=Host:insapp.fr"
         depends_on:
             - api
     db:

@@ -20,7 +20,7 @@ address = ":8080"
 [retry]
 
 [docker]
-domain = "dev.insapp.fr"
+domain = "insapp.fr"
 watch = true
 exposedbydefault = false
 
