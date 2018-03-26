@@ -8,11 +8,12 @@ Insapp architecture
 
 Don't forget to customize the following files:
 
-    * docker-compose.yml (the API exposed port & canonical hostname)
-    * traefik.toml (your email & canonical hostname)
-    * insapp-go/Dockerfile (the API exposed port)
-    * insapp-go/src/config.json
-    * insapp-web/app/app.config.json
+* docker-compose.yml (the API exposed port & canonical hostname)
+* traefik.toml (your email & canonical hostname)
+* insapp-go/Dockerfile (the API exposed port)
+* insapp-go/src/config.json
+* insapp-web/app/app.config.json
+* insapp-backup/dropbox_uploader.conf
 
 You can now run the Docker instance with:
 
