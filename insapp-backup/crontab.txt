@@ -1,1 +1,1 @@
-30 4 * * * /opt/Dropbox-Uploader/Dropbox-Uploader/dropbox_uploader.sh upload /opt/Dropbox-Uploader/insapp-cdn/ /insapp-prod/`date +"%d-%m-%Y"` -f /opt/Dropbox-Uploader/dropbox_uploader.conf
+30 4 * * * /opt/Dropbox-Uploader/Dropbox-Uploader/dropbox_uploader.sh -f /opt/Dropbox-Uploader/dropbox_uploader.conf upload /opt/Dropbox-Uploader/insapp-cdn/ /insapp-prod/`date +"%d-%m-%Y"`/insapp-cdn >> /var/log/dropbox_uploader.log 2>&1
