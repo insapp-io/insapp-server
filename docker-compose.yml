@@ -9,8 +9,8 @@ services:
             - "443:443"
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock
-            - $PWD/traefik.toml:/etc/traefik/traefik.toml
-            - $PWD/acme:/etc/traefik/acme
+            - ./traefik.toml:/etc/traefik/traefik.toml
+            - ./acme:/etc/traefik/acme
     api:
         restart: always
         build: ./insapp-go
