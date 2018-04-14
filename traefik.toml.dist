@@ -20,12 +20,12 @@ address = ":8080"
 [retry]
 
 [docker]
-domain = "insapp.fr"
+domain = "REPLACE_WITH_YOUR_HOST"
 watch = true
 exposedbydefault = false
 
 [acme]
-email = "tomatrocho@gmail.com"
+email = "REPLACE_WITH_YOUR_EMAIL"
 storage = "/etc/traefik/acme/acme.json"
 entryPoint = "https"
 OnHostRule = true

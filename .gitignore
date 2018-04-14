@@ -1,1 +1,6 @@
 .DS_Store
+
+acme/
+
+docker-compose.yml
+traefik.toml
