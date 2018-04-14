@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 sudo apt-get update
-sudo apt-get upgrade
+sudo apt-get -y upgrade
 
 # Prepare insapp-server configuration
 
@@ -36,6 +36,6 @@ sed -i "s/REPLACE_WITH_THE_API_PORT/$port/g" insapp-go/src/config.json
 
 # Prepare insapp-web configuration
 
-cp insapp-web/app/app.config.json.dist insapp-web/app/app.config.json
+cp insapp-web/app/app.config.js.dist insapp-web/app/app.config.js
 
-sed -i "s/REPLACE_WITH_YOUR_HOST/$domain/g" insapp-web/app/app.config.json
+sed -i "s/REPLACE_WITH_YOUR_HOST/$domain/g" insapp-web/app/app.config.js
