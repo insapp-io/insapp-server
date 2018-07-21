@@ -1,5 +1,5 @@
 FROM alpine
-LABEL maintainer "Thomas Bouvier <tomatrocho@gmail.com>"
+LABEL maintainer "Thomas Bouvier <contact@thomas-bouvier.io>"
 
 RUN apk add --no-cache bash curl git
 
