@@ -4,7 +4,7 @@ Insapp architecture
 
 ## Server setup
 
-    git clone --recursive https://github.com/tomatrocho/insapp-server.git
+    git clone --recursive https://github.com/thomas-bouvier/insapp-server.git
 
 Don't forget to customize the following files:
 
