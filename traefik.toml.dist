@@ -20,12 +20,12 @@ address = ":8080"
 [retry]
 
 [docker]
-domain = "REPLACE_WITH_YOUR_HOST"
+domain = "REPLACE_WITH_THE_HOST_DOMAIN"
 watch = true
 exposedbydefault = false
 
 [acme]
-email = "REPLACE_WITH_YOUR_EMAIL"
+email = "REPLACE_WITH_YOUR_GOOGLE_EMAIL"
 storage = "/etc/traefik/acme/acme.json"
 entryPoint = "https"
 OnHostRule = true

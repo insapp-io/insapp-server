@@ -11,7 +11,7 @@ cp traefik.toml.dist traefik.toml
 echo "What should be the domain name that points to this server (insapp.fr):"
 read domain
 
-read "What should be the environment type (dev or prod):"
+echo "What should be the environment type (dev or prod):"
 read environment
 
 echo "What is your Gmail address (insapp.contact@gmail.com):"
@@ -26,8 +26,8 @@ read port
 echo "What should be the MongoDB database password:"
 read mongo_password
 
-sed -i "s/REPLACE_WITH_YOUR_HOST/$domain/g" docker-compose.yml
-sed -i "s/REPLACE_WITH_YOUR_HOST/$domain/g" traefik.toml
+sed -i "s/REPLACE_WITH_THE_HOST_DOMAIN/$domain/g" docker-compose.yml
+sed -i "s/REPLACE_WITH_THE_HOST_DOMAIN/$domain/g" traefik.toml
 
 sed -i "s/REPLACE_WITH_YOUR_GOOGLE_EMAIL/$email/g" traefik.toml
 
@@ -55,4 +55,4 @@ sed -i "s/REPLACE_WITH_THE_API_PORT/$port/g" insapp-go/src/config.json
 
 cp insapp-web/app/app.config.js.dist insapp-web/app/app.config.js
 
-sed -i "s/REPLACE_WITH_YOUR_HOST/$domain/g" insapp-web/app/app.config.js
+sed -i "s/REPLACE_WITH_THE_HOST_DOMAIN/$domain/g" insapp-web/app/app.config.js
