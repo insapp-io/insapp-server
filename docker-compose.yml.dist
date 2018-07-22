@@ -38,6 +38,9 @@ services:
     db:
         restart: always
         image: mongo
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=Insapp
+            - MONGO_INITDB_ROOT_PASSWORD=REPLACE_WITH_THE_MONGO_PASSWORD
         volumes:
             - ./insapp-db/:/data/db
     dropbox:
