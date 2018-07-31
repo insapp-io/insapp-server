@@ -27,6 +27,6 @@ To pull last updates, simply run:
 
 ## Database dump
 
-To regularly create a binary export of the contents of the MongoDB database, add the following CRON task:
+To create a binary export of the contents of the MongoDB database, use the following command:
 
-    30 1 * * * docker exec insappserver_db_1 mongodump --out /data/db/current-backup --db insapp ; touch /root/insapp-server/insapp-db/current-backup/date.txt
+    docker exec <container_name> mongodump -u insapp-admin -p <password> --authenticationDatabase admin --out /data/db/backups/`date +%Y-%m-%d` --db insapp

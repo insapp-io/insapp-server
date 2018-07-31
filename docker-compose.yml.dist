@@ -37,12 +37,13 @@ services:
             - api
     db:
         restart: always
-        image: mongo
+        image: mongo:3
         environment:
             - MONGO_INITDB_ROOT_USERNAME=insapp-admin
             - MONGO_INITDB_ROOT_PASSWORD=REPLACE_WITH_THE_MONGO_PASSWORD
         volumes:
             - ./insapp-db/:/data/db
+        command: mongod
     dropbox:
         restart: always
         build: ./insapp-backup
