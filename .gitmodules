@@ -7,3 +7,8 @@
 	path = insapp-go
 	url = https://github.com/thomas-bouvier/insapp-go.git
 	branch = master
+
+[submodule "dropbox-uploader"]
+	path = insapp-backup/dropbox-uploader
+	url = https://github.com/andreafabrizi/Dropbox-Uploader.git
+	branch = master

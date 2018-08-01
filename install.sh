@@ -26,6 +26,9 @@ read port
 echo "What should be the MongoDB database password:"
 read mongo_password
 
+echo "What is your Dropbox OAuth 2 token (linked to a previously created Dropbox application):"
+read dropbox_token
+
 sed -i "s/REPLACE_WITH_THE_HOST_DOMAIN/$domain/g" docker-compose.yml
 sed -i "s/REPLACE_WITH_THE_HOST_DOMAIN/$domain/g" traefik.toml
 
@@ -56,3 +59,11 @@ sed -i "s/REPLACE_WITH_THE_API_PORT/$port/g" insapp-go/src/config.json
 cp insapp-web/app/app.config.js.dist insapp-web/app/app.config.js
 
 sed -i "s/REPLACE_WITH_THE_HOST_DOMAIN/$domain/g" insapp-web/app/app.config.js
+
+# Prepare insapp-backup configuration
+
+cp insapp-backup/dropbox_uploader.conf.dist insapp-backup/dropbox_uploader.conf
+
+sed -i "s/REPLACE_WITH_THE_MONGO_PASSWORD/$mongo_password/g" enable_backups.sh
+
+sed -i "s/REPLACE_WITH_YOUR_DROPBOX_TOKEN/$dropbox_token/g" insapp-backup/dropbox_uploader.conf

@@ -44,8 +44,3 @@ services:
         volumes:
             - ./insapp-db/:/data/db
         command: mongod
-    dropbox:
-        restart: always
-        build: ./insapp-backup
-        volumes:
-            - ./insapp-cdn/:/opt/Dropbox-Uploader/insapp-cdn/
