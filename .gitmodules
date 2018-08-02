@@ -9,6 +9,6 @@
 	branch = master
 
 [submodule "dropbox-uploader"]
-	path = insapp-backup/dropbox-uploader
+	path = dropbox-uploader
 	url = https://github.com/andreafabrizi/Dropbox-Uploader.git
 	branch = master
