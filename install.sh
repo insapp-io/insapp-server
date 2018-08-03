@@ -32,16 +32,11 @@ read port
 echo "What should be the MongoDB database password:"
 read mongo_password
 
-echo "What is your Dropbox OAuth 2 token (linked to a previously created Dropbox application):"
-read dropbox_token
-
 # Replacing parameters in configuration files
 
 sed -i "s/REPLACE_WITH_THE_HOST_DOMAIN/$domain/g" docker-compose.yml
 sed -i "s/REPLACE_WITH_THE_API_PORT/$port/g" docker-compose.yml
 sed -i "s/REPLACE_WITH_THE_MONGO_PASSWORD/$mongo_password/g" docker-compose.yml
-
-sed -i "s/REPLACE_WITH_YOUR_DROPBOX_TOKEN/$dropbox_token/g" dropbox-uploader.conf
 
 sed -i "s/REPLACE_WITH_THE_HOST_DOMAIN/$domain/g" traefik.toml
 sed -i "s/REPLACE_WITH_YOUR_GOOGLE_EMAIL/$email/g" traefik.toml
