@@ -26,6 +26,9 @@ read email
 echo "What is your Gmail password:"
 read email_password
 
+echo "What is the Firebase server key:"
+read firebase_key
+
 echo "What should be the API exposed port (9000):"
 read port
 
@@ -47,6 +50,7 @@ sed -i "s/REPLACE_WITH_THE_API_PORT/$port/g" insapp-go/Dockerfile
 
 sed -i "s/REPLACE_WITH_YOUR_GOOGLE_EMAIL/$email/g" insapp-go/src/config.json
 sed -i "s/REPLACE_WITH_YOUR_GOOGLE_PASSWORD/$email_password/g" insapp-go/src/config.json
+sed -i "s/REPLACE_WITH_THE_FIREBASE_KEY/$firebase_key/g" insapp-go/src/config.json
 sed -i "s/REPLACE_WITH_THE_MONGO_PASSWORD/$mongo_password/g" insapp-go/src/config.json
 sed -i "s/REPLACE_WITH_THE_ENVIRONMENT_TYPE/$environment/g" insapp-go/src/config.json
 sed -i "s/REPLACE_WITH_THE_API_PORT/$port/g" insapp-go/src/config.json
