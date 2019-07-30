@@ -2,6 +2,8 @@
 
 Insapp architecture
 
+Related repositories : [API](https://github.com/thomas-bouvier/insapp-go), [web](https://github.com/thomas-bouvier/insapp-web), [Android](https://github.com/thomas-bouvier/insapp-android), [iOS version](https://github.com/RobAddict/insapp-iOS).
+
 ## Server setup
 
 Clone this repository and its submodules:
