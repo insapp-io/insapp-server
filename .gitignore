@@ -5,3 +5,5 @@ acme/
 docker-compose.yml
 dropbox-uploader.conf
 traefik.toml
+
+.idea/

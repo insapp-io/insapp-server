@@ -1,16 +1,19 @@
-version: "3"
+version: '3'
+
 services:
     proxy:
         restart: always
         image: traefik
+        command: --docker #--api
         ports:
             - "80:80"
-            - "8080:8080"
+            #- "8080:8080"
             - "443:443"
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock
             - ./traefik.toml:/etc/traefik/traefik.toml
             - ./acme:/etc/traefik/acme
+
     api:
         restart: always
         build: ./insapp-go
@@ -24,6 +27,7 @@ services:
             - "traefik.frontend.rule=Host:REPLACE_WITH_THE_HOST_DOMAIN;PathPrefixStrip:/api/v1"
         depends_on:
             - db
+
     web:
         restart: always
         build: ./insapp-web
@@ -35,6 +39,7 @@ services:
             - "traefik.frontend.rule=Host:REPLACE_WITH_THE_HOST_DOMAIN"
         depends_on:
             - api
+
     db:
         restart: always
         image: mongo:3
