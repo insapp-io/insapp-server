@@ -6,8 +6,8 @@ sudo apt-get -y upgrade
 # Copying configuration files
 
 cp docker-compose.yml.dist docker-compose.yml
-cp dropbox-uploader.conf.dist dropbox-uploader.conf
 cp traefik.toml.dist traefik.toml
+cp enable_backups.sh.dist enable_backups.sh
 cp insapp-web/app/app.config.js.dist insapp-web/app/app.config.js
 cp insapp-go/Dockerfile.dist insapp-go/Dockerfile
 cp insapp-go/src/config.json.dist insapp-go/src/config.json
