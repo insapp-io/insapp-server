@@ -22,6 +22,18 @@ You can now build and run the Docker instance with:
 
 You're all set!
 
+## CLI
+
+The [api](https://github.com/thomas-bouvier/insapp-go) contains a CLI:
+
+    docker-compose exec api ./cli
+
+### Create your first association
+
+To create your first association (a master association) that can create other associations from the web interface, use:
+
+    docker-compose exec api ./cli association create --name MyFirstAssociation --email yourEmail@exemple.com
+
 ## Pull updates
 
 To pull last updates, simply run the `pull_changes.sh` script:
@@ -33,7 +45,7 @@ To pull last updates, simply run the `pull_changes.sh` script:
 
 To create a binary export of the MongoDB database, use the following command:
 
-    docker exec <container_name> mongodump -u insapp-admin -p <password> --authenticationDatabase admin --out /data/db/backups/`date +%Y-%m-%d` --db insapp
+    docker-compose exec db mongodump -u insapp-admin -p <password> --authenticationDatabase admin --out /data/db/backups/`date +%Y-%m-%d` --db insapp
 
 You can configure automatic backups to Dropbox by running the `enable_backups.sh` script. You should edit it beforehand to configure the name of the Docker instance running MongoDB.
 
