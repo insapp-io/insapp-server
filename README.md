@@ -41,13 +41,23 @@ To pull last updates, simply run the `pull_changes.sh` script:
     chmod +x pull_changes.sh
     ./pull_changes.sh
 
-## Database dump
+## Database
+
+Folder `./insapp-db/` is bind to `/data/db/` in db container.
+
+### Databse dump
 
 To create a binary export of the MongoDB database, use the following command:
 
     docker-compose exec db mongodump -u insapp-admin -p <password> --authenticationDatabase admin --out /data/db/backups/`date +%Y-%m-%d` --db insapp
 
 You can configure automatic backups to Dropbox by running the `enable_backups.sh` script. You should edit it beforehand to configure the name of the Docker instance running MongoDB.
+
+### Databse restoration
+
+Place a dump in `./insapp-db/current-backup/`, then run:
+
+    docker-compose exec db mongorestore -u insapp-admin -p <password> -d insapp --authenticationDatabase admin /data/db/current-backup/insapp
 
 ## Manual configuration
 
