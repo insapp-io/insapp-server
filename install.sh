@@ -10,7 +10,7 @@ cp traefik.toml.dist traefik.toml
 cp enable_backups.sh.dist enable_backups.sh
 cp insapp-web/app/app.config.js.dist insapp-web/app/app.config.js
 cp insapp-go/Dockerfile.dist insapp-go/Dockerfile
-cp insapp-go/src/config.json.dist insapp-go/src/config.json
+cp insapp-go/config.json.dist insapp-go/config.json
 
 # Asking for parameters
 
@@ -48,11 +48,11 @@ sed -i "s/REPLACE_WITH_THE_MONGO_PASSWORD/$mongo_password/g" enable_backups.sh
 
 sed -i "s/REPLACE_WITH_THE_API_PORT/$port/g" insapp-go/Dockerfile
 
-sed -i "s/REPLACE_WITH_YOUR_GOOGLE_EMAIL/$email/g" insapp-go/src/config.json
-sed -i "s/REPLACE_WITH_YOUR_GOOGLE_PASSWORD/$email_password/g" insapp-go/src/config.json
-sed -i "s/REPLACE_WITH_THE_FIREBASE_KEY/$firebase_key/g" insapp-go/src/config.json
-sed -i "s/REPLACE_WITH_THE_MONGO_PASSWORD/$mongo_password/g" insapp-go/src/config.json
-sed -i "s/REPLACE_WITH_THE_ENVIRONMENT_TYPE/$environment/g" insapp-go/src/config.json
-sed -i "s/REPLACE_WITH_THE_API_PORT/$port/g" insapp-go/src/config.json
+sed -i "s/REPLACE_WITH_YOUR_GOOGLE_EMAIL/$email/g" insapp-go/config.json
+sed -i "s/REPLACE_WITH_YOUR_GOOGLE_PASSWORD/$email_password/g" insapp-go/config.json
+sed -i "s/REPLACE_WITH_THE_FIREBASE_KEY/$firebase_key/g" insapp-go/config.json
+sed -i "s/REPLACE_WITH_THE_MONGO_PASSWORD/$mongo_password/g" insapp-go/config.json
+sed -i "s/REPLACE_WITH_THE_ENVIRONMENT_TYPE/$environment/g" insapp-go/config.json
+sed -i "s/REPLACE_WITH_THE_API_PORT/$port/g" insapp-go/config.json
 
 sed -i "s/REPLACE_WITH_THE_HOST_DOMAIN/$domain/g" insapp-web/app/app.config.js
