@@ -2,9 +2,9 @@
 
 Insapp architecture
 
-Related repositories : [API](https://github.com/thomas-bouvier/insapp-go), [web](https://github.com/thomas-bouvier/insapp-web), [Android](https://github.com/thomas-bouvier/insapp-android), [iOS version](https://github.com/RobAddict/insapp-iOS).
+Related repositories: [API](https://github.com/thomas-bouvier/insapp-go), [web](https://github.com/thomas-bouvier/insapp-web), [Android](https://github.com/thomas-bouvier/insapp-android), [iOS version](https://github.com/RobAddict/insapp-iOS).
 
-## Server setup
+## Server Setup
 
 Clone this repository and its submodules:
 
@@ -26,13 +26,13 @@ You're all set!
 
 The [api](https://github.com/thomas-bouvier/insapp-go) contains a CLI:
 
-    docker-compose exec api ./cli
+    docker-compose exec api ./insapp-cli
 
 ### Create your first association
 
 To create your first association (a master association) that can create other associations from the web interface, use:
 
-    docker-compose exec api ./cli association create --name MyFirstAssociation --email yourEmail@exemple.com
+    docker-compose exec api ./insapp-cli association create --name MyFirstAssociation --email yourEmail@exemple.com
 
 ## Pull updates
 
@@ -45,7 +45,7 @@ To pull last updates, simply run the `pull_changes.sh` script:
 
 Folder `./insapp-db/` is bind to `/data/db/` in db container.
 
-### Databse dump
+### Database Dump
 
 To create a binary export of the MongoDB database, use the following command:
 
@@ -53,7 +53,7 @@ To create a binary export of the MongoDB database, use the following command:
 
 You can configure automatic backups to Dropbox by running the `enable_backups.sh` script. You should edit it beforehand to configure the name of the Docker instance running MongoDB.
 
-### Databse restoration
+### Database Restoration
 
 Place a dump in `./insapp-db/current-backup/`, then run:
 
@@ -63,8 +63,8 @@ Place a dump in `./insapp-db/current-backup/`, then run:
 
 If you want to manually customize the server, you should edit the following configuration files:
 
-* docker-compose.yml
-* traefik.toml
-* insapp-go/Dockerfile
-* insapp-go/src/config.json
-* insapp-web/app/app.config.json
+* `docker-compose.yml`
+* `traefik.toml`
+* `insapp-go/Dockerfile`
+* `insapp-go/config.json`
+* `insapp-web/app/app.config.json`
