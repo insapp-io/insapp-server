@@ -18,7 +18,7 @@ services:
         restart: always
         build: ./insapp-go
         volumes:
-            - ./insapp-cdn/:/root/img/
+            - ./insapp-cdn/:/go/cdn/
         ports:
             - "REPLACE_WITH_THE_API_PORT:REPLACE_WITH_THE_API_PORT"
         labels:
