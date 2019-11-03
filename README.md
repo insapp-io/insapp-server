@@ -43,7 +43,9 @@ To pull last updates, simply run the `pull_changes.sh` script:
 
 ## Database
 
-Folder `./insapp-db/` is bind to `/data/db/` in db container.
+Folder `./insapp-db` is bound to `/data/db` in db container.
+
+    docker-compose exec db mongo -u insapp-admin -p <password>
 
 ### Database Dump
 
