@@ -6,6 +6,8 @@ Related repositories: [API](https://github.com/thomas-bouvier/insapp-go), [web](
 
 ## Server Setup
 
+This currently doesn't work on Windows because the Mongo image can't read bind mounts from NTFS volumes. This could probably be fixed by using [volumes](https://docs.docker.com/storage/volumes/).
+
 Clone this repository and its submodules:
 
     git clone --recursive https://github.com/thomas-bouvier/insapp-server.git
