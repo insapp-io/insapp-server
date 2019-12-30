@@ -71,4 +71,4 @@ If you want to manually customize the server, you should edit the following conf
 * `traefik.toml`
 * `insapp-go/Dockerfile`
 * `insapp-go/config.json`
-* `insapp-web/app/app.config.json`
+* `insapp-web/app/src/js/config/app.config.js`
