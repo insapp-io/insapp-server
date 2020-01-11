@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 
-sudo apt-get update
-sudo apt-get -y upgrade
+sudo apt update
+sudo apt -y upgrade
+sudo apt install openssl
+
+# Generating keys
+
+openssl genrsa -out ./insapp-go/app.rsa 2048
+openssl rsa -in ./insapp-go/app.rsa -pubout > ./insapp-go/app.rsa.pub
 
 # Copying configuration files
 
@@ -17,7 +23,7 @@ cp insapp-go/config.json.dist insapp-go/config.json
 echo "What should be the domain name that points to this server (insapp.fr):"
 read domain
 
-echo "What should be the environment type (dev or prod):"
+echo "What should be the environment type (prod, dev or local):"
 read environment
 
 echo "What is your Gmail address (insapp.contact@gmail.com):"
@@ -61,3 +67,5 @@ sed -i "s/REPLACE_WITH_THE_PRIVATE_KEY_PATH/$private_key_path/g" insapp-go/confi
 sed -i "s/REPLACE_WITH_THE_PUBLIC_KEY_PATH/$public_key_path/g" insapp-go/config.json
 
 sed -i "s/REPLACE_WITH_THE_HOST_DOMAIN/$domain/g" insapp-web/app/src/js/config/app.config.js
+
+echo "Don't forget to copy the service-account.json file at the root of the insapp-go/ directory."
