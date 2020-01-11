@@ -8,7 +8,7 @@ sudo apt-get -y upgrade
 cp docker-compose.yml.dist docker-compose.yml
 cp traefik.toml.dist traefik.toml
 cp enable_backups.sh.dist enable_backups.sh
-cp insapp-web/app/app.config.js.dist insapp-web/app/app.config.js
+cp insapp-web/app/src/js/config/app.config.js.dist insapp-web/app/src/js/config/app.config.js
 cp insapp-go/Dockerfile.dist insapp-go/Dockerfile
 cp insapp-go/config.json.dist insapp-go/config.json
 
@@ -60,4 +60,4 @@ sed -i "s/REPLACE_WITH_THE_API_PORT/$port/g" insapp-go/config.json
 sed -i "s/REPLACE_WITH_THE_PRIVATE_KEY_PATH/$private_key_path/g" insapp-go/config.json
 sed -i "s/REPLACE_WITH_THE_PUBLIC_KEY_PATH/$public_key_path/g" insapp-go/config.json
 
-sed -i "s/REPLACE_WITH_THE_HOST_DOMAIN/$domain/g" insapp-web/app/app.config.js
+sed -i "s/REPLACE_WITH_THE_HOST_DOMAIN/$domain/g" insapp-web/app/src/js/config/app.config.js
